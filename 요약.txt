@@ -1,0 +1,46 @@
+h1,h2,h3 제목들 - block
+a(anchor,링크) -inline
+p(paragraph,문단) - block
+span(소단위의 글씨) 
+ul,ol,dl (리스트) - block
+li(리스트항목) - block
+table(표) - block
+
+div (아무의미없음, 박스) - block
+---------------
+header (내용의 헤드) - block
+section (내용들의 덩어리) - block
+article (단일 내용, 기사등) - block
+aside (좌우배치되는 요소들) - block
+footer (하단반복요소들) - block
+nav (사이트 메뉴 묶기) - block
+-------------------------
+
+문서 기본 구조는 좌상단부터 채워진다.
+inline - 크기를 지정해도 인식하지 못함
+block - 크기를 인식
+
+inline요소에 크기를 지정하고 싶을때는 display:block
+
+display:block : 크기를 가져라. 크기를 인지 표현해준다. ex)display:block; width:500px;
+display:inline; width:500px; (500px;  너비 구현 X, 글씨처럼 움직여서 부모에서 지정한 text-align을 따르겠다)
+display:inline-block; (크기도 표현하고 글씨처럼 움직여라.) - 500px;너비 구현, 부모에서 지정한 text;align:center를 따른다
+display:none; (화면에서 없앤다)
+
+--------------------------------------------
+요소배치 
+1)float이 걸린 요소 자체가 해당 방향으로 이동한다.
+2)float이 걸린 요소의 너비가 자동으로 인지된다. (display 속성자체가 inline-block으로 변경되는 것은 아니지만, 자식요소의 너비만큼 자동으로 외형이 잡힌다.
+3)뒤의 요소들이 달려든다.
+4)달려드는 속성을 해지해줘야만 뒤의 요소들을 다시 배치할 수 있다.
+달려드는 속성을 해지해줘야만, 플롯이 걸린 요소 부모가 높이를 제대로 인지한다.
+5)플롯해지(clear:both;)는 플롯이 걸린 요소뒤에서 해줘야한다.
+요소이름 :after{content:'';display:block; clear:both;}
+(요소의 내용뒤에 공간을 만들고 블록속성을 주어 플롯을 해지해준다.
+
+-----------------------------------------------------------------------------------------------------
+요소들 배치
+box-sizing:content-box (기본값) : width는 본문의 크기다. padding, border는 본문 바깥으로 적용하라. (ex:p{width:500px; padding:10px; border:5px;} -> 전체크기 530px
+box-sizing:border-box(기본값): width는 보더까지가 크기다. padding, border크기 안쪽으로 적용하라. (p{width:500px; padding:10px; border:5px; -> 전체크기 500px
+
+-------------------------------------------------------------------------------------------------
